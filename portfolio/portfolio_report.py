@@ -18,7 +18,10 @@ def read_portfolio(filename):
     """
     Returns data from a CSV file
     """
-   
+    with open(filename, newline='') as file:
+        csv_reader = csv.DictReader(file)
+        data = [row for row in csv_reader]
+        return data
 
 
 def get_args(args=None):
