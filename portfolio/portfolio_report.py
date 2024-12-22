@@ -49,7 +49,10 @@ def save_portfolio(output_data, filename):
     """
     Saves data to a CSV file
     """
-    
+    with open(filename, 'w', newline='') as file:
+        writer = csv.DictWriter(file, ['symbol', 'units', 'cost'])
+        writer.writeheader()  # Write the header
+        writer.writerows(output_data)  # Write all the rows at once
 
 
 if __name__ == '__main__':

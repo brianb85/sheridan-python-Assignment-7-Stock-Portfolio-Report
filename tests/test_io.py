@@ -34,14 +34,14 @@ def test_read_portfolio(portfolio_csv):
         'fixture as a Python data structure.'
     )
 
-"""
+
 def test_save_portfolio(portfolio_csv):
-    
+    """
     Given that the save portfolio method is called with the following
     data, assert that a CSV file is written in the expected format.
 
     The portfolio
-    
+    """
     data = [{'symbol': 'MSFT', 'units': 10, 'cost': 99.66}]
     portfolio_report.save_portfolio(data, filename=portfolio_csv)
 
@@ -51,4 +51,3 @@ def test_save_portfolio(portfolio_csv):
         assert result == expected, (
             f'Expecting the file to contain: \n{result}'
         )
-"""
