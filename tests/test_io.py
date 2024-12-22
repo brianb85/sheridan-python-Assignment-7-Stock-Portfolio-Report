@@ -2,6 +2,8 @@
 Tests I/O disk operations.
 """
 from collections import OrderedDict
+import requests
+import requests_mock
 
 from portfolio import portfolio_report
 
@@ -51,3 +53,8 @@ def test_save_portfolio(portfolio_csv):
         assert result == expected, (
             f'Expecting the file to contain: \n{result}'
         )
+
+def test_API_get(requests_mock):
+    url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=SHOP.TRT&outputsize=full&apikey=demo"
+    requests_mock.get(url, text='data')
+    assert 'data' == requests.get(url).text
